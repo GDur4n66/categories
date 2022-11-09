@@ -30,7 +30,32 @@ taxonomy:
 |<a id="change_output"></a>チェンジ・アウトプット|Change Output|Bitcoin does not use accounts and balances. Instead, pieces of bitcoin, called UTXOs, are owned by individuals. These can be likened to physical bills in that when they are spent, they will usually require change to be given as their amount will almost never match the amount being paid. When a user creates a transaction, they select an input, a UTXO which they own, and create outputs. One output will go to the receiver’s address and the other output will be returned to the sender’s wallet, usually via a different address. The amount for this second output will be the change, which will amount to the sum of the inputs minus the amount spent in the first output and the transaction fee.|2,100 sats|
 |<a id="chain_analysis"></a>チェーン分析|Chain Analysis|Chain analysis uses heuristics to analyse the blockchain and trace the ownership of bitcoin across transactions. Several companies exist solely to track and deanonymize individuals and their bitcoin using these heuristics. These companies sell their analysis to financial institutions and governments who are attempting to prevent fraud, money laundering, and other illegal activities. Chain analysis is a broad term, and should not be confused with the company called Chainalysis.|2,100 sats|
 |<a id="anonymity"></a>匿名性|Anonymity|Anonymity is the quality of a person whose identity is unknown. An anonymous person uses a pseudonym to operate in public without revealing their identity. In the age of the Internet, anonymity is extremely hard to establish and maintain. Bank accounts, employers, social media, and telephone companies almost all require personal identification. The Bitcoin blockchain is inherently pseudonymous, not anonymous. Instead of a name, address, or phone number being linked to each transaction, only addresses, public keys, and signatures appear on the blockchain. These addresses do not themselves reveal who owns which bitcoin. However, using various heuristics and surveillance tools, governments and corporations can perform chain analysis to connect a users’s pseudonymous address to their real-world identity.|2,100 sats|
-|<a id="transaction"></a>トランザクション|Transaction|A transaction exists as a record of the transfer of bitcoin. All transactions are recorded in blocks on the blockchain. Most users use wallets to send and receive Bitcoin transactions. Wallets do all of the technical work in the background so that users can simply specify an address and an amount to send to that address. When a transaction is ready, it is broadcast to nodes on the Bitcoin network. These nodes keep the transaction in a pool of pending transactions called the mempool until miners add it to a block. Only once a transaction is added to a block is it confirmed. It is a safe practice to wait until a transaction has been in the blockchain for at least 6 blocks to consider it settled with finality. Under the hood, a transaction consists of three main parts: inputs, outputs, and a signature. Inputs are simply pieces of bitcoin called UTXOs which the payer chooses to spend. Outputs send a specified amount of bitcoin to a specified address, creating a new UTXO. A transaction can contain any number of inputs and outputs. Lastly, in order for the transaction to be valid, the payer must sign the transaction, thereby proving ownership of the inputs they are attempting to spend. This signature is produced using the payer’s private keys. Let’s walk through an example transaction: Alice owns a UTXO worth 1 BTC and wishes to pay Bob 0.4 BTC. Thus, she uses the 1 BTC UTXO as an input. In order to send Bob exactly 0.4 BTC, Alice creates two outputs: the first to Bob, in the amount of 0.4 BTC, and the second back to herself, in the amount 0.59 BTC. This means that she paid a 0.01 BTC transaction fee. Key Fact: the fee of a Bitcoin transaction is not an output of the transaction. The fee is not itself an output. It is implied by the sum of the inputs (1 BTC) minus the sum of the outputs (0.4 + 0.59 = 0.99 BTC) and is collected by the miner. Lastly, Alice uses the private key controlling the 1 BTC UTXO to sign the transaction before broadcasting it to the network. When this transaction is added to the blockchain, the 1 BTC UTXO will be destroyed, and two new UTXOs in the amounts of 0.4 BTC and 0.59 BTC will be created, belonging to Bob and Alice respectively.|2,100 sats|
+|<a id="transaction"></a>トランザクション|Transaction|トランザクションは、ビットコインの移動の記録として存在します。 
+すべてのトランザクションは、ブロックチェーン上のブロックに記録されます。 
+ほとんどのユーザーはビットコインのトランザクションを送信および受信するためにウォレットを使用します。 
+ウォレットがバックグラウンドですべての技術的な作業を行うので、ユーザーは単にアドレスとそのアドレスに送信する金額を指定するだけです。
+トランザクションの準備ができると、それはビットコインネットワーク上のノードにブロードキャストされます。
+これらのノードはマイナーがブロックに追加するまでmempoolと呼ばれる保留中のトランザクションのプールにそのトランザクションを保持します。 
+トランザクションがブロックに追加された時点で、そのトランザクションは確認されます。
+トランザクションがブロックチェーンに少なくとも6ブロック保存されるまで待つのが安全な方法であり、最終的に決済されたと考えることができます。 
+取引の仕組みは、インプット、アウトプット、署名の3つの部分から構成されています。
+インプットとは支払者が使用することを選択したUTXOと呼ばれるビットコインの断片のことです。 
+アウトプットとは指定されたアドレスに指定された量のビットコインを送り、新しいUTXO(未使用アウトプット)を作成することです。 
+1つの取引にはいくつでもインプットとアウトプットを含めることができます。
+最後にトランザクションを有効にするために、支払人はトランザクションに署名し、それによって彼らが使おうとしているインプットの所有権を証明する必要があります。
+この署名は支払い者の秘密鍵を用いて作成さ れます。
+
+トランザクションの例を見てみましょう。
+アリスは1BTCのUTXOを所有し、ボブに0.4BTCを支払いたいと思っています。
+そこで彼女は1BTCのUTXOを入力として使用します。
+Bobに0.4BTCを送るために、アリスは2つのアウトプットを作成します。1つ目はBobに0.4BTC、2つ目は自分自身に0.59BTCの金額で送ります。 
+つまり彼女は0.01BTCの取引手数料を支払ったことになります。
+Key Fact: ビットコイン取引の手数料は、取引のアウトプットではありません。
+
+手数料はアウトプットではありません。
+インプットの合計 (1 BTC) からアウトプットの合計 (0.4 + 0.59 = 0.99 BTC) を引いたもので、マイナーによって徴収さ れます。
+最後に、アリスは1BTCのUTXOを制御する秘密鍵を使って、ネットワークにブロードキャストする前に取引に署名します。
+このトランザクションがブロックチェーンに追加されると、1 BTC UTXOは使用済みとなり、0.4 BTCと0.59 BTCの2つの新しいUTXOが作成され、それぞれボブとアリスに属することになります。|2,100 sats|
 |<a id="txid"></a>トランザクションID（TXID）|Transaction ID (txid)|A txid or Transaction ID is a string of letters and numbers that identifies a specific transaction on the blockchain. The string is simply the double SHA-256 hash of a transaction. This hash can be used to look up a transaction on a node or block explorer. When signing a transaction, it is in fact the txid that is signed. Signing the txid ensures that if any part of the transaction changes, the transaction ID changes, and the signature is rendered invalid. Technically, a txid is not always a hash of the entire transaction. Since a signature cannot sign itself, signatures are not included in the txid, and thus signatures can be changed after their creation, sometimes without being invalidated. Before SegWit, this allowed a txid to change after the transaction was signed, a problem called transaction malleability.|2,100 sats|
 
 ---
